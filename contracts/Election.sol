@@ -1,6 +1,5 @@
-pragma solidity ^0.4.12;
-
 // SPDX-License-Identifier: GPL-3.0
+pragma solidity ^0.8.24;
 
 import "./Ownable.sol";
 import "./SafeMath.sol";
@@ -27,7 +26,7 @@ using SafeMath for uint256;
     // voted event
     event votedEvent ( uint indexed _candidateId);
 
-    function addCandidate (string memory _name) public {
+    function addCandidate (string memory _name) public onlyOwner {
         candidatesCount ++;
         candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
     }
